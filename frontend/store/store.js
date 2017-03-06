@@ -9,4 +9,5 @@ export const configureStore = () => {
   window.selectors = allTodos;
   window.receiveTodo = receiveTodo;
   window.receiveTodos = receiveTodos;
+  return store;
 };
