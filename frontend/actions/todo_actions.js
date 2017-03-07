@@ -1,5 +1,6 @@
 export const RECEIVE_TODOS = "RECEIVE_TODOS";
 export const RECEIVE_TODO = "RECEIVE_TODO";
+export const REMOVE_TODO = "REMOVE_TODO";
 
 export const receiveTodos = (todos) => ({
   type: RECEIVE_TODOS,
@@ -7,7 +8,11 @@ export const receiveTodos = (todos) => ({
 });
 
 export const receiveTodo = (todo) => ({
-  junk: console.log("asdf"),
   type: RECEIVE_TODO,
   todo    //deconstruction todo: todo
+});
+
+export const removeTodo = (todo) => ({
+    type: REMOVE_TODO,
+    todo
 });

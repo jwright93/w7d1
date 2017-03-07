@@ -7,7 +7,8 @@ class TodoForm extends React.Component {
     this.state = {
       title: ''
     };
-    this.clickHandler = this.clickHandler.bind(this);
+    this.clickAdd = this.clickAdd.bind(this);
+    this.clickRemove = this.clickRemove.bind(this);
     this.uniqueId = uniqueId;
   }
 
@@ -15,7 +16,7 @@ class TodoForm extends React.Component {
     return (event => this.setState({[key]: event.currentTarget.value}));
   }
 
-  clickHandler(e) {
+  clickAdd(e) {
     e.preventDefault();
     let newObj = {
       id: uniqueId(),
@@ -26,11 +27,18 @@ class TodoForm extends React.Component {
     this.setState({title: ''});
   }
 
+  clickRemove(e) {
+    e.preventDefault();
+    this.props.removeTodo({id: this.state.title});
+    this.setState({title: ''});
+  }
+
   render() {
     return (
-      <form onSubmit={this.clickHandler}>
+      <form >
         <input onChange={this.linkState('title')} value={this.state.title} ></input>
-        <button>Add Todo</button>
+        <button onClick={this.clickAdd}>Add Todo</button>
+        <button onClick={this.clickRemove}>Delete Todo</button>
       </form>
     );
   }

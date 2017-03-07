@@ -1,7 +1,7 @@
 import {createStore} from 'redux';
 import rootReducer from '../reducers/root_reducer';
 import allTodos from '../reducers/selectors';
-import {receiveTodos, receiveTodo} from '../actions/todo_actions';
+import {removeTodo, receiveTodos, receiveTodo} from '../actions/todo_actions';
 
 export const configureStore = () => {
   const store = createStore(rootReducer);
@@ -9,5 +9,6 @@ export const configureStore = () => {
   window.selectors = allTodos;
   window.receiveTodo = receiveTodo;
   window.receiveTodos = receiveTodos;
+  window.removeTodo = removeTodo;
   return store;
 };
